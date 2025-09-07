@@ -43,26 +43,45 @@
     <section id="about">
         <div class="container">
             <div class="glass-card">
-                <h2>About Brooklyn Sangha</h2>
+                <h2>About Brooklyn Insight Sangha</h2>
                 <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                    Welcome to Brooklyn Insight Sangha. Since our founding in 2022, we've created a sanctuary where ancient wisdom meets modern life, offering a space for practitioners of all levels to explore meditation and Buddhist teachings.
+                    We are a group of friends who met during a retreat at the Insight Meditation Society (IMS) in Barre, MA and decided that we want to start our own sangha to support each others practices.
                 </p>
                 <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                    While our community draws primarily from the Insight/Theravada Tradition, we aim to create an inclusive environment where diverse perspectives enrich our collective practice. Whether you're taking your first steps into meditation or deepening an established practice, you'll find support and guidance here.
+                    While we draw primarily from the Insight/Theravada Tradition of IMS, we aim to create an inclusive environment where we are open to all perspectives. Whether you're taking your first steps into meditation or deepening an established practice, you'll find support and guidance here.
                 </p>
                 
                 <h3>Our Mission</h3>
                 <p style="line-height: 1.8;">
-                    To provide accessible Buddhist meditation instruction and create a supportive community for spiritual growth in Brooklyn. We believe in the transformative power of mindfulness and compassion to bring peace to individuals and our broader community.
+                    To provide accessible Buddhist meditation instruction and create a supportive community for spiritual growth in Brooklyn. We believe in the transformative power of the Dharma.
                 </p>
 
                 <h3>What We Offer</h3>
-                <ul style="line-height: 2; margin-left: 2rem;">
-                    <li>Weekly group meditations</li>
-                    <li>Day-long silent meditation retreats</li>
-                    <li>Open mic nights</li>
-                    <li>Dharma Dances - mindful, sober dance parties</li>
-                </ul>
+                <div class="offerings-grid">
+                    <div class="offering-card">
+                        <span class="offering-icon">🧘</span>
+                        <h4>Weekly Group Meditations</h4>
+                        <p>Join our regular Thursday evening session for guided meditation and community practice</p>
+                    </div>
+                    
+                    <div class="offering-card">
+                        <span class="offering-icon">🌅</span>
+                        <h4>Day-long Silent Retreats</h4>
+                        <p>Deepen your practice with full-day silent meditation retreats in peaceful settings</p>
+                    </div>
+                    
+                    <div class="offering-card">
+                        <span class="offering-icon">💃</span>
+                        <h4>Dharma Dances</h4>
+                        <p>Mindful, sober dance parties combining movement meditation with joyful community connection</p>
+                    </div>
+                    
+                    <div class="offering-card">
+                        <span class="offering-icon">🎤</span>
+                        <h4>Open Mic Nights</h4>
+                        <p>Express yourself through poetry, music, or storytelling in a supportive spiritual community</p>
+                    </div>
+                </div>
 
                 <h3>Who We Are</h3>
                 <p style="line-height: 1.8; margin-bottom: 2rem;">
@@ -220,7 +239,7 @@
                         <div class="format-icon">📚</div>
                         <div class="format-content">
                             <h4>Reading Practice</h4>
-                            <p>We take turns reading a book on mindfulness. We are currently reading <em>When Awareness Becomes Natural</em> by <a href="https://www.amazon.com/When-Awareness-Becomes-Natural-Cultivating/dp/1531864988" target="_blank">Sayadaw U Tejaniya</a></p>
+                            <p>We take turns reading a book on mindfulness. We are currently reading <a href="https://www.amazon.com/When-Awareness-Becomes-Natural-Cultivating/dp/1531864988" target="_blank"><em>When Awareness Becomes Natural</em></a> by Sayadaw U Tejaniya</p>
                         </div>
                     </div>
                     
@@ -276,8 +295,42 @@
     <section id="events">
         <div class="container">
             <div class="glass-card">
-                <h2>Upcoming Events</h2>
+                <div class="events-header">
+                    <h2>Events Calendar</h2>
+                    <div class="calendar-subscribe">
+                        <button id="subscribe-btn" class="subscribe-btn">
+                            📅 Subscribe to Calendar
+                        </button>
+                    </div>
+                </div>
                 
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <button id="prev-month" class="nav-btn">‹</button>
+                        <h3 id="current-month">September 2025</h3>
+                        <button id="next-month" class="nav-btn">›</button>
+                    </div>
+                    
+                    <div class="calendar-grid">
+                        <div class="calendar-day-header">Sun</div>
+                        <div class="calendar-day-header">Mon</div>
+                        <div class="calendar-day-header">Tue</div>
+                        <div class="calendar-day-header">Wed</div>
+                        <div class="calendar-day-header">Thu</div>
+                        <div class="calendar-day-header">Fri</div>
+                        <div class="calendar-day-header">Sat</div>
+                        
+                        <!-- Calendar days will be generated by JavaScript -->
+                        <div id="calendar-days"></div>
+                    </div>
+                </div>
+                
+                <div class="events-legend">
+                    <p style="text-align: center; margin-top: 1rem; opacity: 0.8;">
+                        <span style="color: var(--primary);">●</span> Weekly Meditation Sits &nbsp;&nbsp;
+                        <span style="color: var(--secondary);">●</span> Special Events &nbsp;&nbsp;
+                        <span style="color: var(--accent);">●</span> Retreats
+                    </p>
                 </div>
             </div>
         </div>
