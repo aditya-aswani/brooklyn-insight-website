@@ -2320,6 +2320,11 @@ footer {
     .mobile-menu-toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(6px, -6px);
     }
+    
+    /* Contemplative semester contact info line height for landscape */
+    #contemplative-semester .cs-contact-info {
+        line-height: 1.8 !important;
+    }
 
     /* Ensure home section starts below navbar */
     #home {

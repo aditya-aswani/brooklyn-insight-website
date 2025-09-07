@@ -119,6 +119,30 @@ class EventsCalendar {
                 title: 'Weekly Group Meditation',
                 day: 4, // Thursday (0 = Sunday)
                 recurring: true
+            },
+            // Dharma Dance event
+            {
+                type: 'dharma-dance',
+                emoji: '💃',
+                title: 'Dharma Dance',
+                date: new Date(2025, 8, 6), // September 6, 2025 (month is 0-indexed)
+                recurring: false
+            },
+            // Day-long Silent Retreat event
+            {
+                type: 'silent-retreat',
+                emoji: '🌅',
+                title: 'Day-long Silent Retreat',
+                date: new Date(2025, 8, 7), // September 7, 2025 (month is 0-indexed)
+                recurring: false
+            },
+            // Open Mic Night event
+            {
+                type: 'open-mic',
+                emoji: '🎤',
+                title: 'Open Mic Night',
+                date: new Date(2025, 8, 21), // September 21, 2025 (month is 0-indexed)
+                recurring: false
             }
             // Other specific event dates will be added later
         ];
@@ -170,7 +194,7 @@ class EventsCalendar {
             subscribeBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 console.log('Subscribe button clicked');
-                this.generateICS();
+                this.openGoogleCalendarSubscription();
             });
         }
     }
@@ -354,6 +378,13 @@ class EventsCalendar {
                     // Weekly recurring event
                     hasEvent = true;
                 }
+            } else if (!event.recurring && event.date) {
+                // Specific date event
+                if (event.date.getFullYear() === date.getFullYear() &&
+                    event.date.getMonth() === date.getMonth() &&
+                    event.date.getDate() === date.getDate()) {
+                    hasEvent = true;
+                }
             }
             
             if (hasEvent) {
@@ -373,25 +404,65 @@ class EventsCalendar {
         return Math.ceil((dayOfMonth + firstDayOfWeek) / 7);
     }
     
-    generateICS() {
-        console.log('generateICS called');
-        try {
-            const icsContent = this.createICSContent();
-            console.log('ICS content generated');
-            const blob = new Blob([icsContent], { type: 'text/calendar' });
-            const url = window.URL.createObjectURL(blob);
+    openGoogleCalendarSubscription() {
+        console.log('Opening Google Calendar subscription');
+        
+        // Brooklyn Insight Sangha Google Calendar ID
+        const calendarId = '522801e9a40e8e8a44124e81c9f3f2c79bce6760693302dfa38a8ea371468884d@group.calendar.google.com';
+        const subscriptionUrl = `https://calendar.google.com/calendar/u/0/r/settings/addcalendar?cid=${encodeURIComponent(calendarId)}`;
+        
+        // Open Google Calendar subscription page
+        window.open(subscriptionUrl, '_blank');
+    }
+    
+    getNextUpcomingEvent() {
+        const today = new Date();
+        const upcomingEvents = [];
+        
+        // Get events for the next 3 months
+        for (let i = 0; i < 90; i++) {
+            const checkDate = new Date(today);
+            checkDate.setDate(today.getDate() + i);
             
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = 'brooklyn-insight-sangha-events.ics';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            window.URL.revokeObjectURL(url);
-            console.log('Calendar file download initiated');
-        } catch (error) {
-            console.error('Error generating ICS file:', error);
+            this.events.forEach(event => {
+                if (event.recurring && event.day === checkDate.getDay()) {
+                    upcomingEvents.push({
+                        ...event,
+                        date: new Date(checkDate)
+                    });
+                } else if (!event.recurring && event.date && 
+                          event.date >= today && 
+                          event.date.getTime() === checkDate.getTime()) {
+                    upcomingEvents.push(event);
+                }
+            });
+            
+            if (upcomingEvents.length > 0) break;
         }
+        
+        return upcomingEvents[0] || null;
+    }
+    
+    createGoogleCalendarEventUrl(event) {
+        const startDate = new Date(event.date);
+        const endDate = new Date(startDate);
+        endDate.setHours(startDate.getHours() + 1); // Default 1 hour duration
+        
+        const formatDate = (date) => {
+            return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+        };
+        
+        const params = new URLSearchParams({
+            action: 'TEMPLATE',
+            text: event.title,
+            dates: `${formatDate(startDate)}/${formatDate(endDate)}`,
+            details: `Join us for ${event.title} at Brooklyn Insight Sangha. Visit https://brooklyninsightsangha.org for more details.`,
+            location: 'Brooklyn, NY',
+            sf: true,
+            output: 'xml'
+        });
+        
+        return `https://calendar.google.com/calendar/render?${params.toString()}`;
     }
     
     createICSContent() {
