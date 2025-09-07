@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brooklyn Sangha - Buddhist Meditation Community</title>
+    <title>Brooklyn Insight Sangha - Buddhist Meditation Community</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -11,15 +12,16 @@
 
     <nav id="navbar">
         <div class="nav-container">
-            <div class="logo">✦ Brooklyn Insight</div>
+            <div class="logo">☸ Brooklyn Insight Sangha</div>
             <ul class="nav-links">
                 <li><a href="#home" onclick="showSection('home')">Home</a></li>
                 <li><a href="#about" onclick="showSection('about')">About</a></li>
                 <li><a href="#weekly-sit" onclick="showSection('weekly-sit')">Weekly Sit</a></li>
+                <li><a href="https://www.contemplativesemester.org/" target="_blank">Contemplative Semester</a></li>
                 <li><a href="#events" onclick="showSection('events')">Events</a></li>
-                <li><a href="#newsletter" onclick="showSection('newsletter')">Newsletter</a></li>
                 <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
             </ul>
+            <a href="#newsletter" onclick="showSection('newsletter')" class="signup-btn">Sign Up for Updates</a>
         </div>
     </nav>
 
@@ -33,7 +35,7 @@
                     <div class="circle"></div>
                     <div class="circle"></div>
                 </div>
-                <a href="#weekly-sit" class="cta-button" onclick="showSection('weekly-sit')">Join Our Next Sit</a>
+                <a href="#weekly-sit" class="cta-button" onclick="showSection('weekly-sit')">Sign up for Updates</a>
             </div>
         </div>
     </section>
@@ -43,10 +45,10 @@
             <div class="glass-card">
                 <h2>About Brooklyn Sangha</h2>
                 <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                    Welcome to Brooklyn Insight Sangha, a vibrant Buddhist meditation community nestled in the heart of Brooklyn. Since our founding in 2022, we've created a sanctuary where ancient wisdom meets modern life, offering a space for practitioners of all levels to explore meditation and Buddhist teachings.
+                    Welcome to Brooklyn Insight Sangha. Since our founding in 2022, we've created a sanctuary where ancient wisdom meets modern life, offering a space for practitioners of all levels to explore meditation and Buddhist teachings.
                 </p>
                 <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                    Our community draws from various Buddhist traditions, primarily Theravada and Zen, creating an inclusive environment where diverse perspectives enrich our collective practice. Whether you're taking your first steps into meditation or deepening an established practice, you'll find support and guidance here.
+                    While our community draws primarily from the Insight/Theravada Tradition, we aim to create an inclusive environment where diverse perspectives enrich our collective practice. Whether you're taking your first steps into meditation or deepening an established practice, you'll find support and guidance here.
                 </p>
                 
                 <h3>Our Mission</h3>
@@ -56,12 +58,130 @@
 
                 <h3>What We Offer</h3>
                 <ul style="line-height: 2; margin-left: 2rem;">
-                    <li>Weekly guided meditation sessions</li>
-                    <li>Dharma talks and discussions</li>
-                    <li>Day-long retreats and workshops</li>
-                    <li>One-on-one meditation instruction</li>
-                    <li>Community service opportunities</li>
+                    <li>Weekly group meditations</li>
+                    <li>Day-long silent meditation retreats</li>
+                    <li>Open mic nights</li>
+                    <li>Dharma Dances - mindful, sober dance parties</li>
                 </ul>
+
+                <h3>Who We Are</h3>
+                <p style="line-height: 1.8; margin-bottom: 2rem;">
+                    Our community is guided by dedicated practitioners who bring diverse backgrounds and deep wisdom to support your meditation journey.
+                </p>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="images/shea-riester.png" alt="Shea Riester">
+                        </div>
+                        <div class="member-info">
+                            <h4>Shea Riester</h4>
+                            <p class="member-role">Teacher</p>
+                            <div class="member-links">
+                                <a href="https://www.embodiednonviolence.com/" target="_blank">Website</a>
+                                <a href="https://www.linkedin.com/in/shea-riester-lmsw-sep-80217b92/" target="_blank">LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="images/maya-park.webp" alt="Maya Park">
+                        </div>
+                        <div class="member-info">
+                            <h4>Maya Park</h4>
+                            <p class="member-role">Teacher</p>
+                            <div class="member-links">
+                                <a href="https://www.buddhistinquiry.org/person/maya-park/" target="_blank">Profile</a>
+                                <a href="https://www.linkedin.com/in/maya-park-6553b9157/" target="_blank">LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="images/margrit-pittman-polletta.jpeg" alt="Margrit Pittman-Polletta">
+                        </div>
+                        <div class="member-info">
+                            <h4>Margrit Pittman-Polletta</h4>
+                            <p class="member-role">Teacher</p>
+                            <div class="member-links">
+                                <a href="https://www.dharma.org/teacher/margrit-pittman-polletta/" target="_blank">Profile</a>
+                                <a href="https://www.linkedin.com/in/margrit-pittman-polletta-35511310/" target="_blank">LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="images/jaclyn-thomas.jpeg" alt="Jaclyn Thomas">
+                        </div>
+                        <div class="member-info">
+                            <h4>Jaclyn Thomas</h4>
+                            <p class="member-role">Retreat Facilitator</p>
+                            <div class="member-links">
+                                <a href="https://www.psychologytoday.com/us/therapists/jaclyn-thomas-new-york-ny/1302412" target="_blank">Profile</a>
+                                <a href="https://www.linkedin.com/in/jaclynthomas2023/" target="_blank">LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="images/alex-toth.png" alt="Alex Tōth">
+                        </div>
+                        <div class="member-info">
+                            <h4>Alex Tōth</h4>
+                            <p class="member-role">Retreat Facilitator</p>
+                            <div class="member-links">
+                                <a href="https://www.tothtunes.com/" target="_blank">Website</a>
+                                <a href="https://www.youtube.com/@TOTHTUNES" target="_blank">YouTube</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="images/michelle-chai.jpg" alt="Michelle Chai">
+                        </div>
+                        <div class="member-info">
+                            <h4>Michelle Chai</h4>
+                            <p class="member-role">Steward</p>
+                            <div class="member-links">
+                                <a href="https://www.youtube.com/user/brooklynchai" target="_blank">YouTube</a>
+                                <a href="https://www.linkedin.com/in/chaimichelle/" target="_blank">LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="images/nathan-shane.jpeg" alt="Nathan Shane">
+                        </div>
+                        <div class="member-info">
+                            <h4>Nathan Shane</h4>
+                            <p class="member-role">Steward</p>
+                            <div class="member-links">
+                                <a href="https://www.psychologytoday.com/us/therapists/nathan-shane-brooklyn-ny/1525487" target="_blank">Profile</a>
+                                <a href="https://www.linkedin.com/in/nathan-shane/" target="_blank">LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="images/aditya-aswani.jpg" alt="Aditya Aswani">
+                        </div>
+                        <div class="member-info">
+                            <h4>Aditya Aswani</h4>
+                            <p class="member-role">Website Keeper</p>
+                            <div class="member-links">
+                                <a href="https://adityaaswani.com/" target="_blank">Website</a>
+                                <a href="https://www.linkedin.com/in/aaswani/" target="_blank">LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -69,49 +189,85 @@
     <section id="weekly-sit">
         <div class="container">
             <div class="glass-card">
-                <h2>Weekly Meditation Sessions</h2>
+                <h2>Weekly Meditation Session</h2>
                 <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-                    Join us for our regular meditation sessions. All experience levels welcome. Sessions are offered on a donation basis.
+                    Join us for our regular Thursday evening meditation sit. All experience levels welcome.
                 </p>
                 
-                <div class="schedule-item">
-                    <div>
-                        <strong>Monday Evening Sit</strong><br>
-                        Guided Meditation & Dharma Talk
-                    </div>
-                    <div>7:00 PM - 8:30 PM</div>
-                </div>
+                <h3>Format</h3>
+                <p style="line-height: 1.8; margin-bottom: 1.5rem;">
+                    We meet in-person and start at 7 PM sharp and usually end around 9 PM. We encourage you to arrive five to ten minutes early to get settled in. Here is our usual format:
+                </p>
                 
-                <div class="schedule-item">
-                    <div>
-                        <strong>Wednesday Morning Practice</strong><br>
-                        Silent Meditation
+                <div class="format-timeline">
+                    <div class="format-item">
+                        <div class="format-icon">🧘</div>
+                        <div class="format-content">
+                            <h4>Arrival Sit</h4>
+                            <p>Three minute sit in silence to arrive</p>
+                        </div>
                     </div>
-                    <div>6:30 AM - 7:30 AM</div>
-                </div>
-                
-                <div class="schedule-item">
-                    <div>
-                        <strong>Friday Lunch Meditation</strong><br>
-                        Mindfulness for Busy Lives
+                    
+                    <div class="format-item">
+                        <div class="format-icon">👋</div>
+                        <div class="format-content">
+                            <h4>Introductions</h4>
+                            <p>Brief introductions for newcomers and reconnecting</p>
+                        </div>
                     </div>
-                    <div>12:00 PM - 12:45 PM</div>
-                </div>
-                
-                <div class="schedule-item">
-                    <div>
-                        <strong>Sunday Community Sit</strong><br>
-                        Extended Practice & Tea
+                    
+                    <div class="format-item">
+                        <div class="format-icon">📚</div>
+                        <div class="format-content">
+                            <h4>Reading Practice</h4>
+                            <p>We take turns reading a book on mindfulness. We are currently reading <em>When Awareness Becomes Natural</em> by <a href="https://www.amazon.com/When-Awareness-Becomes-Natural-Cultivating/dp/1531864988" target="_blank">Sayadaw U Tejaniya</a></p>
+                        </div>
                     </div>
-                    <div>10:00 AM - 12:00 PM</div>
+                    
+                    <div class="format-item">
+                        <div class="format-icon">🕯️</div>
+                        <div class="format-content">
+                            <h4>Silent Meditation</h4>
+                            <p>We meditate together in silence for 30 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="format-item">
+                        <div class="format-icon">👀</div>
+                        <div class="format-content">
+                            <h4>Paired Practice</h4>
+                            <p>We are randomly split up into dyads for a paired eye-receiving and verbal noting practice</p>
+                        </div>
+                    </div>
+                    
+                    <div class="format-item">
+                        <div class="format-icon">💬</div>
+                        <div class="format-content">
+                            <h4>Open Sharing</h4>
+                            <p>We take turns for open sharing what we thought of the reading, how our practice is going, or really whatever is on our mind</p>
+                        </div>
+                    </div>
+                    
+                    <div class="format-item">
+                        <div class="format-icon">💙</div>
+                        <div class="format-content">
+                            <h4>Closing Mettā</h4>
+                            <p>We close with a group Mettā (loving-kindness) meditation</p>
+                        </div>
+                    </div>
+                    
+                    <div class="format-item">
+                        <div class="format-icon">🍎</div>
+                        <div class="format-content">
+                            <h4>Optional Hangout</h4>
+                            <p>After ending around 9 PM, some folks like to join for a casual hangout where we chat and share fruits</p>
+                        </div>
+                    </div>
                 </div>
 
                 <h3>Location</h3>
                 <p style="line-height: 1.8;">
-                    Brooklyn Community Center<br>
-                    456 Mindfulness Way<br>
-                    Brooklyn, NY 11201<br>
-                    <em>(Near Borough Hall Station)</em>
+                    Please contact us at <a href="mailto:hello@bkinsight.nyc">hello@bkinsight.nyc</a> for the location as we tend to host it at different people's homes on different weeks.
                 </p>
             </div>
         </div>
@@ -121,42 +277,7 @@
         <div class="container">
             <div class="glass-card">
                 <h2>Upcoming Events</h2>
-                <div class="events-grid">
-                    <div class="event-card">
-                        <div class="event-date">September 15, 2025</div>
-                        <h3>Introduction to Meditation Workshop</h3>
-                        <p>Perfect for beginners! Learn the fundamentals of Buddhist meditation in this 3-hour workshop.</p>
-                    </div>
-                    
-                    <div class="event-card">
-                        <div class="event-date">September 28, 2025</div>
-                        <h3>Day of Mindfulness Retreat</h3>
-                        <p>A full day of silent practice, walking meditation, and dharma teachings. Lunch provided.</p>
-                    </div>
-                    
-                    <div class="event-card">
-                        <div class="event-date">October 5, 2025</div>
-                        <h3>Compassion in Action</h3>
-                        <p>Community service day at the local food bank, practicing generosity and loving-kindness.</p>
-                    </div>
-                    
-                    <div class="event-card">
-                        <div class="event-date">October 12-14, 2025</div>
-                        <h3>Weekend Silent Retreat</h3>
-                        <p>Deepen your practice with a weekend of noble silence, meditation, and contemplation.</p>
-                    </div>
-                    
-                    <div class="event-card">
-                        <div class="event-date">October 20, 2025</div>
-                        <h3>Buddhist Psychology Series</h3>
-                        <p>First of four sessions exploring the intersection of Buddhist teachings and modern psychology.</p>
-                    </div>
-                    
-                    <div class="event-card">
-                        <div class="event-date">November 1, 2025</div>
-                        <h3>Full Moon Meditation</h3>
-                        <p>Special evening practice honoring the Buddhist tradition of Uposatha observance.</p>
-                    </div>
+                
                 </div>
             </div>
         </div>
@@ -166,40 +287,10 @@
         <div class="container">
             <div class="glass-card">
                 <h2>Stay Connected</h2>
-                <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-                    Join our newsletter to receive weekly teachings, event updates, and meditation resources directly to your inbox.
-                </p>
                 
-                <form onsubmit="handleNewsletter(event)">
-                    <div class="form-group">
-                        <label for="newsletter-name">Name</label>
-                        <input type="text" id="newsletter-name" placeholder="Your name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="newsletter-email">Email</label>
-                        <input type="email" id="newsletter-email" placeholder="your@email.com" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" style="margin-right: 0.5rem;">
-                            I'm interested in receiving information about retreats
-                        </label>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">Subscribe to Newsletter</button>
                 </form>
                 
-                <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(6,182,212,0.1); border-radius: 10px;">
-                    <h3>Recent Newsletter Topics</h3>
-                    <ul style="line-height: 2; margin-left: 1rem;">
-                        <li>The Four Noble Truths in Daily Life</li>
-                        <li>Cultivating Patience in a Fast-Paced World</li>
-                        <li>Meditation Tips for Busy New Yorkers</li>
-                        <li>Understanding Non-Attachment</li>
-                    </ul>
-                </div>
+                
             </div>
         </div>
     </section>
@@ -212,57 +303,19 @@
                     We'd love to hear from you. Whether you have questions about our programs or need meditation guidance, we're here to help.
                 </p>
                 
-                <form onsubmit="handleContact(event)">
-                    <div class="form-group">
-                        <label for="contact-name">Name</label>
-                        <input type="text" id="contact-name" placeholder="Your name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="contact-email">Email</label>
-                        <input type="email" id="contact-email" placeholder="your@email.com" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="contact-subject">Subject</label>
-                        <input type="text" id="contact-subject" placeholder="What would you like to discuss?" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="contact-message">Message</label>
-                        <textarea id="contact-message" rows="6" placeholder="Your message..." required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
                 
-                <div style="margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                    <div>
-                        <h3>Visit Us</h3>
-                        <p>Brooklyn Community Center<br>
-                        456 Mindfulness Way<br>
-                        Brooklyn, NY 11201</p>
-                    </div>
-                    
-                    <div>
-                        <h3>Contact Info</h3>
-                        <p>Email: info@brooklynsangha.org<br>
-                        Phone: (718) 555-CALM<br>
-                        Office Hours: Mon-Fri 10am-4pm</p>
-                    </div>
-                    
-                    <div>
-                        <h3>Follow Us</h3>
-                        <p>Instagram: @brooklynsangha<br>
-                        Facebook: /brooklynsangha<br>
-                        YouTube: Brooklyn Sangha Talks</p>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <footer>
+        <p class="footer-blessing">May all beings be happy, healthy, and safe.</p>
+        <p class="footer-copyright">© Brooklyn Insight Sangha. Made with <a href="https://www.anthropic.com/claude-code">Claude Code</a> and lots of 🧘 in NYC.</p>
+    </footer>
+
     <script src="js/script.js"></script>
+    <!-- Live reload script - only loads in development -->
     <script>
         // Live reload functionality for development
         if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {

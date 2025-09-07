@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "build": "mkdir -p dist && cp index.html dist/ && cp -r css dist/ && cp -r js dist/ && cp -r images dist/ && cp favicon.svg dist/",
+    "preview": "cd dist && python3 -m http.server 8080"
   },
   "dependencies": {
     "express": "^4.18.2",
