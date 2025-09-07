@@ -12,7 +12,7 @@
 
     <nav id="navbar">
         <div class="nav-container">
-            <div class="logo">☸ Brooklyn Insight Sangha</div>
+            <div class="logo"><span class="logo-symbol">☸</span> Brooklyn Insight Sangha</div>
             <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
                 <span></span>
                 <span></span>
@@ -36,7 +36,7 @@
         <div class="container">
             <div class="hero">
                 <h1>Let's Sit Together</h1>
-                <p>Join our Buddhist meditation community in the heart of Brooklyn</p>
+                <p class="hero-subtitle">Join our Buddhist meditation community in the heart of Brooklyn</p>
                 <div class="meditation-circle">
                     <div class="circle"></div>
                     <div class="circle"></div>
@@ -129,7 +129,7 @@
 
                 <h3>Location</h3>
                 <p style="line-height: 1.8;">
-                    Please contact us at <a href="mailto:hello@bkinsight.nyc">hello@bkinsight.nyc</a> for the location as we tend to host it at different people's homes on different weeks.
+                    Please <a href="#contact" onclick="showSection('contact')">contact us</a> for the location as we tend to host it at different people's homes on different weeks.
                 </p>
             </div>
         </div>
@@ -138,10 +138,10 @@
     <section id="events">
         <div class="container">
             <div class="glass-card">
-                <h2>What We Offer</h2>
+                <h2>Events</h2>
                 
-                <p style="line-height: 1.8; margin-bottom: 2rem; text-align: center;">
-                    All our offerings are completely free.
+                <p style="line-height: 1.8; margin-bottom: 2rem; text-align: left;">
+                    All our events are completely free.
                 </p>
 
                 <div class="offerings-grid">
@@ -170,9 +170,8 @@
                     </div>
                 </div>
                 
-                <h3 style="margin-top: 3rem; margin-bottom: 1.5rem;">Events Calendar</h3>
-                
-                <div class="events-header">
+                <div class="calendar-header-section" style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; margin-bottom: 1.5rem;">
+                    <h3 class="events-calendar-heading" style="margin: 0;">Calendar</h3>
                     <div class="calendar-subscribe">
                         <button id="subscribe-btn" class="subscribe-btn">
                             📅 Subscribe to Calendar
@@ -180,15 +179,19 @@
                     </div>
                 </div>
                 
+                <div class="events-header">
+                
                 <div class="calendar-container">
                     <div class="calendar-header">
-                        <div class="calendar-title-section">
+                        <div class="calendar-month-section">
                             <h3 id="current-month">September 2025</h3>
-                            <button id="today-btn" class="today-btn">Today</button>
                         </div>
-                        <div class="calendar-nav-buttons">
-                            <button id="prev-month" class="nav-btn">‹</button>
-                            <button id="next-month" class="nav-btn">›</button>
+                        <div class="calendar-controls-section">
+                            <button id="today-btn" class="today-btn">Today</button>
+                            <div class="calendar-nav-buttons">
+                                <button id="prev-month" class="nav-btn">‹</button>
+                                <button id="next-month" class="nav-btn">›</button>
+                            </div>
                         </div>
                     </div>
                     
@@ -222,7 +225,7 @@
         <div class="container">
             <div class="glass-card">
                 <h2>Contemplative Semester</h2>
-                <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem; text-align: center;">
+                <p class="cs-description" style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem; text-align: left;">
                     A transformative 3-month immersion for young adults (18-25) combining Buddhist wisdom, mindfulness meditation, and nature connection in Vermont.
                 </p>
                 
@@ -286,7 +289,7 @@
                             </a>
                         </div>
                         
-                        <p style="text-align: center; margin-top: 1.5rem; opacity: 0.8;">
+                        <p class="cs-contact-info" style="text-align: center; margin-top: 1.5rem; opacity: 0.8;">
                             Questions? Contact the Contemplative Semester team at <a href="mailto:info@ContemplativeSemester.org">info@ContemplativeSemester.org</a>
                         </p>
                     </div>
@@ -300,10 +303,10 @@
             <div class="glass-card">
                 <h2>About Us</h2>
                 <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                    We are a group of friends who met during a retreat at the Insight Meditation Society (IMS) in Barre, MA and decided to start our own sangha to support each others practices.
+                    We are a group of friends who met during a retreat at the Insight Meditation Society (IMS) in Barre, MA and decided to start our own sangha to support each other's practices.
                 </p>
                 <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                    While we draw primarily from the Insight/Theravada Tradition of IMS, we aim to create an inclusive environment where all perspectives are welcome. Whether you're taking your first steps into meditation or deepening an established practice, you'll find support and guidance here.
+                    While we draw primarily from the Insight/Theravada Tradition of IMS, we welcome all perspectives. Whether you're taking your first steps into meditation or deepening an established practice, you'll find support and guidance here.
                 </p>
                 
                 <h3>Our Mission</h3>
@@ -438,29 +441,46 @@
         <div class="container">
             <div class="glass-card">
                 <h2>Get in Touch</h2>
-                <p style="font-size: 1.2rem; margin-bottom: 2.5rem; text-align: center;">
+                <p class="contact-intro" style="font-size: 1.2rem; margin-bottom: 2.5rem; text-align: left;">
                     We'd love to hear from you. Whether you have questions about our programs or need meditation guidance, we're here to help.
                 </p>
                 
                 <div class="contact-content">
-                    <div class="contact-card">
-                        <div class="contact-icon">📧</div>
-                        <h3>Send Us an Email</h3>
-                        <p>Reach out with any questions, feedback, or to learn more about joining our community.</p>
-                        
-                        <div class="email-container">
-                            <a href="mailto:hello@bkinsight.nyc" class="contact-email">
-                                hello@bkinsight.nyc
-                            </a>
+                    <div class="contact-methods">
+                        <div class="contact-card">
+                            <div class="contact-icon">💬</div>
+                            <h3>Send Us a Text</h3>
+                            <p>For quick questions or immediate assistance, feel free to text us directly.</p>
+                            
+                            <div class="email-container">
+                                <a href="sms:8646330782" class="contact-email">
+                                    (864) 633-0782
+                                </a>
+                            </div>
                         </div>
                         
-                        <div class="response-time">
-                            <span class="time-icon">⏱️</span>
-                            <span>We typically respond within 24-48 hours</span>
+                        <div class="contact-card">
+                            <div class="contact-icon">📧</div>
+                            <h3>Send Us an Email</h3>
+                            <p>Reach out with any questions, feedback, or to learn more about joining our community.</p>
+                            
+                            <div class="email-container">
+                                <a href="mailto:hello@bkinsight.nyc" class="contact-email">
+                                    hello@bkinsight.nyc
+                                </a>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="contact-info">
+                        <div class="info-item">
+                            <span class="info-icon">📍</span>
+                            <div class="info-text">
+                                <h4>Location Questions?</h4>
+                                <p>Our meeting location sometimes changes. Contact us for the current location details.</p>
+                            </div>
+                        </div>
+                        
                         <div class="info-item">
                             <span class="info-icon">🧘</span>
                             <div class="info-text">
@@ -470,10 +490,10 @@
                         </div>
                         
                         <div class="info-item">
-                            <span class="info-icon">📍</span>
+                            <span class="info-icon">⏱️</span>
                             <div class="info-text">
-                                <h4>Location Questions?</h4>
-                                <p>Our meeting location sometimes changes. Email us for the current location details.</p>
+                                <h4>Response Time</h4>
+                                <p>We typically respond within 24-48 hours via text or email.</p>
                             </div>
                         </div>
                     </div>
@@ -505,7 +525,7 @@
 
     <footer>
         <p class="footer-blessing">May all beings be happy, healthy, and safe.</p>
-        <p class="footer-copyright">© Brooklyn Insight Sangha. Made with <a href="https://www.anthropic.com/claude-code">Claude Code</a> and lots of 🧘 in NYC.</p>
+        <p class="footer-copyright">© Brooklyn Insight Sangha.<br class="mobile-break"> Made with <a href="https://www.anthropic.com/claude-code">Claude Code</a> and lots of 🧘 in NYC.</p>
     </footer>
 
     <script src="js/script.js"></script>
