@@ -20,10 +20,16 @@ function createStars() {
 function showSection(sectionId) {
     const targetSection = document.getElementById(sectionId);
     if (targetSection) {
-        targetSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+        const navbar = document.getElementById('navbar');
+        const navbarHeight = navbar ? navbar.offsetHeight : 80;
+        const offset = navbarHeight - 40; // navbar height - 40px (scroll lower)
+        const targetPosition = targetSection.offsetTop - offset;
+        
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
         });
+        
         // Add fade-in animation
         targetSection.classList.add('fade-in');
         setTimeout(() => {
@@ -38,10 +44,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            const navbar = document.getElementById('navbar');
+            const navbarHeight = navbar ? navbar.offsetHeight : 80;
+            const offset = navbarHeight - 40; // navbar height - 40px (scroll lower)
+            const targetPosition = target.offsetTop - offset;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
             });
+            
             // Add fade-in animation
             target.classList.add('fade-in');
             setTimeout(() => {
@@ -100,13 +112,15 @@ class EventsCalendar {
     constructor() {
         this.currentDate = new Date();
         this.events = [
-            // Weekly Thursday sits
+            // Weekly Thursday meditations
             {
-                type: 'weekly-sit',
-                title: 'Weekly Meditation Sit',
+                type: 'weekly-meditation',
+                emoji: '🧘',
+                title: 'Weekly Group Meditation',
                 day: 4, // Thursday (0 = Sunday)
                 recurring: true
             }
+            // Other specific event dates will be added later
         ];
         
         this.months = [
@@ -120,25 +134,75 @@ class EventsCalendar {
     init() {
         this.renderCalendar();
         this.attachEventListeners();
+        this.attachResizeListener();
     }
     
     attachEventListeners() {
         const prevBtn = document.getElementById('prev-month');
         const nextBtn = document.getElementById('next-month');
+        const todayBtn = document.getElementById('today-btn');
         const subscribeBtn = document.getElementById('subscribe-btn');
         
-        if (prevBtn) prevBtn.addEventListener('click', () => this.previousMonth());
-        if (nextBtn) nextBtn.addEventListener('click', () => this.nextMonth());
-        if (subscribeBtn) subscribeBtn.addEventListener('click', () => this.generateICS());
+        console.log('Calendar buttons found:', { prevBtn: !!prevBtn, nextBtn: !!nextBtn, todayBtn: !!todayBtn, subscribeBtn: !!subscribeBtn });
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Previous month clicked');
+                this.previousMonth();
+            });
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Next month clicked');
+                this.nextMonth();
+            });
+        }
+        if (todayBtn) {
+            todayBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Today button clicked');
+                this.goToToday();
+            });
+        }
+        if (subscribeBtn) {
+            subscribeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Subscribe button clicked');
+                this.generateICS();
+            });
+        }
+    }
+    
+    attachResizeListener() {
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                this.renderCalendar();
+            }, 250); // Debounce resize events
+        });
     }
     
     previousMonth() {
+        console.log('previousMonth called, current date:', this.currentDate);
         this.currentDate.setMonth(this.currentDate.getMonth() - 1);
+        console.log('new date:', this.currentDate);
         this.renderCalendar();
     }
     
     nextMonth() {
+        console.log('nextMonth called, current date:', this.currentDate);
         this.currentDate.setMonth(this.currentDate.getMonth() + 1);
+        console.log('new date:', this.currentDate);
+        this.renderCalendar();
+    }
+    
+    goToToday() {
+        console.log('goToToday called, resetting to current date');
+        this.currentDate = new Date();
+        console.log('reset to today:', this.currentDate);
         this.renderCalendar();
     }
     
@@ -146,8 +210,24 @@ class EventsCalendar {
         const monthHeader = document.getElementById('current-month');
         const calendarDays = document.getElementById('calendar-days');
         
-        if (!monthHeader || !calendarDays) return;
+        console.log('renderCalendar called, elements found:', { monthHeader: !!monthHeader, calendarDays: !!calendarDays });
         
+        if (!monthHeader || !calendarDays) {
+            console.log('Calendar elements not found');
+            return;
+        }
+        
+        // Check if we're on mobile
+        const isMobile = window.innerWidth <= 767;
+        
+        if (isMobile) {
+            this.renderWeekView(monthHeader, calendarDays);
+        } else {
+            this.renderMonthView(monthHeader, calendarDays);
+        }
+    }
+    
+    renderMonthView(monthHeader, calendarDays) {
         // Update header
         monthHeader.textContent = `${this.months[this.currentDate.getMonth()]} ${this.currentDate.getFullYear()}`;
         
@@ -201,6 +281,49 @@ class EventsCalendar {
         }
     }
     
+    renderWeekView(monthHeader, calendarDays) {
+        // Get the week containing the current date
+        const today = new Date();
+        const currentWeekStart = this.getWeekStart(this.currentDate);
+        
+        // Update header to show week range (without year on mobile)
+        const weekEnd = new Date(currentWeekStart);
+        weekEnd.setDate(weekEnd.getDate() + 6);
+        
+        const startMonth = this.months[currentWeekStart.getMonth()];
+        const endMonth = this.months[weekEnd.getMonth()];
+        
+        if (currentWeekStart.getMonth() === weekEnd.getMonth()) {
+            monthHeader.textContent = `${startMonth} ${currentWeekStart.getDate()}-${weekEnd.getDate()}`;
+        } else {
+            monthHeader.textContent = `${startMonth} ${currentWeekStart.getDate()} - ${endMonth} ${weekEnd.getDate()}`;
+        }
+        
+        // Clear existing days
+        calendarDays.innerHTML = '';
+        
+        // Add 7 days for the current week
+        for (let i = 0; i < 7; i++) {
+            const date = new Date(currentWeekStart);
+            date.setDate(date.getDate() + i);
+            
+            let className = '';
+            if (date.toDateString() === today.toDateString()) {
+                className = 'today';
+            }
+            
+            const dayDiv = this.createDayElement(date.getDate(), className, date);
+            calendarDays.appendChild(dayDiv);
+        }
+    }
+    
+    getWeekStart(date) {
+        const d = new Date(date);
+        const day = d.getDay();
+        const diff = d.getDate() - day; // Get Sunday of current week
+        return new Date(d.setDate(diff));
+    }
+    
     createDayElement(dayNumber, className, date) {
         const dayDiv = document.createElement('div');
         dayDiv.className = `calendar-day ${className}`;
@@ -221,30 +344,54 @@ class EventsCalendar {
             let hasEvent = false;
             
             if (event.recurring && event.day === date.getDay()) {
-                hasEvent = true;
+                if (event.weekOfMonth) {
+                    // Monthly recurring event (specific week of month)
+                    const weekOfMonth = this.getWeekOfMonth(date);
+                    if (weekOfMonth === event.weekOfMonth) {
+                        hasEvent = true;
+                    }
+                } else {
+                    // Weekly recurring event
+                    hasEvent = true;
+                }
             }
             
             if (hasEvent) {
-                const dot = document.createElement('div');
-                dot.className = `event-dot ${event.type}`;
-                dot.title = event.title;
-                dayDiv.appendChild(dot);
+                const eventIndicator = document.createElement('div');
+                eventIndicator.className = `event-indicator ${event.type}`;
+                eventIndicator.textContent = event.emoji;
+                eventIndicator.title = event.title;
+                dayDiv.appendChild(eventIndicator);
             }
         });
     }
     
+    getWeekOfMonth(date) {
+        const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+        const firstDayOfWeek = firstDay.getDay();
+        const dayOfMonth = date.getDate();
+        return Math.ceil((dayOfMonth + firstDayOfWeek) / 7);
+    }
+    
     generateICS() {
-        const icsContent = this.createICSContent();
-        const blob = new Blob([icsContent], { type: 'text/calendar' });
-        const url = window.URL.createObjectURL(blob);
-        
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = 'brooklyn-insight-sangha-events.ics';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        window.URL.revokeObjectURL(url);
+        console.log('generateICS called');
+        try {
+            const icsContent = this.createICSContent();
+            console.log('ICS content generated');
+            const blob = new Blob([icsContent], { type: 'text/calendar' });
+            const url = window.URL.createObjectURL(blob);
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'brooklyn-insight-sangha-events.ics';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+            console.log('Calendar file download initiated');
+        } catch (error) {
+            console.error('Error generating ICS file:', error);
+        }
     }
     
     createICSContent() {
@@ -289,6 +436,36 @@ class EventsCalendar {
     }
 }
 
+// Mobile menu functionality
+function initMobileMenu() {
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    }
+}
+
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Create stars
@@ -296,6 +473,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize calendar
     new EventsCalendar();
+    
+    // Initialize mobile menu
+    initMobileMenu();
     
     // Add smooth parallax effect
     window.addEventListener('scroll', () => {
