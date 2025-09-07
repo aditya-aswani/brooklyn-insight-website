@@ -2192,6 +2192,15 @@ footer {
     .contact-intro {
         text-align: center !important;
     }
+    
+    /* Fix hamburger menu X for iPhone 12 Pro portrait */
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(9px, 9px);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(2px, -2px);
+    }
 }
 
 /* Landscape orientation on mobile devices */
@@ -2301,6 +2310,15 @@ footer {
         padding: 1rem 0.8rem !important;
         box-sizing: border-box !important;
         min-width: 0 !important;
+    }
+
+    /* Fix hamburger menu X for iPhone 12 Pro landscape */
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(2px, 2px);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
     }
 
     /* Ensure home section starts below navbar */
