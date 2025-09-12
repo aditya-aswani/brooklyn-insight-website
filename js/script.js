@@ -141,7 +141,7 @@ class EventsCalendar {
                 type: 'open-mic',
                 emoji: '🎤',
                 title: 'Open Mic Night',
-                date: new Date(2025, 8, 21), // September 21, 2025 (month is 0-indexed)
+                date: new Date(2025, 8, 20), // September 20, 2025 (month is 0-indexed)
                 recurring: false
             }
             // Other specific event dates will be added later
