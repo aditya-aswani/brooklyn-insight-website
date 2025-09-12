@@ -143,6 +143,28 @@ class EventsCalendar {
                 title: 'Open Mic Night',
                 date: new Date(2025, 8, 20), // September 20, 2025 (month is 0-indexed)
                 recurring: false
+            },
+            // Retreat events
+            {
+                type: 'retreat',
+                emoji: '🌅',
+                title: 'Retreat',
+                date: new Date(2025, 8, 26), // September 26, 2025 (month is 0-indexed)
+                recurring: false
+            },
+            {
+                type: 'retreat',
+                emoji: '🌅',
+                title: 'Retreat',
+                date: new Date(2025, 8, 27), // September 27, 2025 (month is 0-indexed)
+                recurring: false
+            },
+            {
+                type: 'retreat',
+                emoji: '🌅',
+                title: 'Retreat',
+                date: new Date(2025, 8, 28), // September 28, 2025 (month is 0-indexed)
+                recurring: false
             }
             // Other specific event dates will be added later
         ];
