@@ -241,6 +241,7 @@ section.fade-in {
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding-top: 140px !important;
 }
 
 .hero {
@@ -1252,78 +1253,23 @@ section.fade-in {
     box-shadow: 0 3px 10px rgba(147, 51, 234, 0.3);
 }
 
-/* Contemplative Semester Section */
-.cs-content {
-    margin-top: 2rem;
-}
 
-.cs-dates-card {
-    background: linear-gradient(135deg, rgba(147,51,234,0.08), rgba(6,182,212,0.08));
-    border-radius: 16px;
-    padding: 0.4rem 2rem;
-    border: 1px solid rgba(147, 51, 234, 0.1);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+
+/* Contemplative Semester Mini Section */
+.cs-mini-card {
+    background: linear-gradient(135deg, rgba(147,51,234,0.1), rgba(6,182,212,0.08));
+    border-radius: 20px;
+    padding: 2.5rem;
+    border: 1px solid rgba(147, 51, 234, 0.15);
+    backdrop-filter: blur(15px);
     text-align: center;
-    margin-bottom: 2.5rem;
-}
-
-.cs-dates-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(147,51,234,0.05) 0%, transparent 70%);
-    animation: rotate 30s linear infinite;
-}
-
-.cs-dates-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(147, 51, 234, 0.15);
-    background: linear-gradient(135deg, rgba(147,51,234,0.12), rgba(6,182,212,0.12));
-}
-
-.cs-dates-card h3 {
-    color: var(--accent);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    position: relative;
-    z-index: 2;
-    font-weight: 600;
-}
-
-.cs-dates-card p {
-    color: var(--light);
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
-    position: relative;
-    z-index: 2;
-}
-
-.cs-info-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.cs-info-card {
-    background: linear-gradient(135deg, rgba(147,51,234,0.05), rgba(6,182,212,0.05));
-    border-radius: 16px;
-    padding: 2rem;
-    border: 1px solid rgba(147, 51, 234, 0.1);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.cs-info-card::before {
+.cs-mini-card::before {
     content: '';
     position: absolute;
     top: -50%;
@@ -1334,147 +1280,138 @@ section.fade-in {
     animation: rotate 30s linear infinite;
 }
 
-.cs-info-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(147, 51, 234, 0.15);
-    background: linear-gradient(135deg, rgba(147,51,234,0.08), rgba(6,182,212,0.08));
-}
-
-.cs-info-card h3 {
-    color: var(--accent);
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
+.cs-mini-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
     position: relative;
     z-index: 2;
+}
+
+.cs-mini-header h2 {
+    color: var(--accent);
+    font-size: 1.8rem;
+    margin: 0;
     font-weight: 600;
 }
 
-.cs-info-card p {
+.cs-mini-icon {
+    font-size: 2rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.cs-mini-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
     color: var(--light);
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
-    position: relative;
-    z-index: 2;
-    font-size: 0.95rem;
-}
-
-.cs-info-card ul {
-    list-style: none;
-    padding: 0;
+    margin-bottom: 2rem;
     position: relative;
     z-index: 2;
 }
 
-.cs-info-card li {
-    color: var(--light);
-    line-height: 1.6;
-    margin-bottom: 0.8rem;
-    padding-left: 1.5rem;
-    position: relative;
-    font-size: 0.95rem;
-}
-
-.cs-info-card li::before {
-    content: '✨';
-    position: absolute;
-    left: 0;
-    color: var(--primary);
-}
-
-.cs-location {
-    color: var(--accent);
-    font-style: italic;
-    font-size: 0.9rem;
-    opacity: 0.9;
-}
-
-.cs-application {
-    text-align: center;
-    margin-top: 3rem;
-}
-
-.cs-deadline-alert {
-    background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(239, 68, 68, 0.1));
-    border: 2px solid rgba(220, 38, 38, 0.3);
-    border-radius: 12px;
-    padding: 1.5rem 2rem;
-    margin-bottom: 2.5rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.cs-deadline-alert::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.1), transparent);
-    animation: shimmer 3s infinite;
-}
-
-.cs-deadline-alert h3 {
-    color: #fecaca;
-    font-size: 1.2rem;
-    margin: 0;
-    font-weight: 700;
-    position: relative;
-    z-index: 2;
-}
-
-@keyframes shimmer {
-    0% { left: -100%; }
-    100% { left: 100%; }
-}
-
-.cs-actions {
+.cs-mini-details {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
     flex-wrap: wrap;
-    margin-bottom: 2rem;
 }
 
-.cs-btn {
+.cs-mini-application {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+    flex-wrap: wrap;
+}
+
+.cs-mini-dates,
+.cs-mini-location,
+.cs-mini-app-info,
+.cs-mini-deadline {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--light);
+    font-size: 1rem;
+}
+
+.cs-mini-emoji {
+    font-size: 1.2rem;
+}
+
+.cs-mini-actions {
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.cs-mini-btn {
     display: inline-block;
-    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
     text-decoration: none;
+    padding: 0.8rem 2rem;
     border-radius: 25px;
     font-weight: 600;
     font-size: 1rem;
     transition: all 0.3s ease;
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    min-width: 160px;
+    box-shadow: 0 4px 15px rgba(147, 51, 234, 0.3);
 }
 
-.cs-btn.primary {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-    box-shadow: 0 6px 20px rgba(147, 51, 234, 0.3);
-}
-
-.cs-btn.primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(147, 51, 234, 0.4);
+.cs-mini-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(147, 51, 234, 0.4);
     background: linear-gradient(135deg, var(--secondary), var(--primary));
 }
 
-.cs-btn.secondary {
-    background: rgba(147, 51, 234, 0.1);
-    color: var(--primary);
-    border: 2px solid var(--primary);
+.cs-mini-footer {
+    color: var(--light);
+    opacity: 0.8;
+    font-size: 0.95rem;
+    margin: 0;
+    position: relative;
+    z-index: 2;
 }
 
-.cs-btn.secondary:hover {
-    background: var(--primary);
-    color: white;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(147, 51, 234, 0.3);
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
+/* Responsive styles for CS mini section */
+@media (max-width: 768px) {
+    .cs-mini-card {
+        padding: 2rem;
+        margin: 0 1rem;
+    }
+    
+    .cs-mini-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .cs-mini-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .cs-mini-details,
+    .cs-mini-application {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .cs-mini-description {
+        font-size: 1rem;
+    }
+}
 
 /* Footer */
 footer {
@@ -2040,7 +1977,7 @@ footer {
     
     /* Hero section special handling */
     #home {
-        padding-top: 120px !important;
+        padding-top: 160px !important;
     }
     
     .hero h1 {
@@ -2056,18 +1993,6 @@ footer {
         margin-bottom: 2rem;
     }
     
-    /* Contemplative Semester specific fixes */
-    #contemplative-semester {
-        padding-top: 100px !important;
-    }
-    
-    #contemplative-semester h2 {
-        font-size: 1.8rem !important;
-        margin-bottom: 1.5rem !important;
-        text-align: center !important;
-        line-height: 1.2 !important;
-        padding: 0 0.5rem !important;
-    }
     
     .cs-dates-card {
         padding: 1.5rem;
@@ -2153,10 +2078,6 @@ footer {
         line-height: 1.6;
     }
     
-    /* Increase line height for contemplative semester contact info on mobile */
-    .cs-contact-info {
-        line-height: 1.9;
-    }
     
     /* Stack calendar header section vertically on mobile */
     .calendar-header-section {
@@ -2321,14 +2242,10 @@ footer {
         transform: rotate(-45deg) translate(6px, -6px);
     }
     
-    /* Contemplative semester contact info line height for landscape */
-    #contemplative-semester .cs-contact-info {
-        line-height: 1.8 !important;
-    }
 
     /* Ensure home section starts below navbar */
     #home {
-        padding-top: 70px !important;
+        padding-top: 120px !important;
     }
 }
 
