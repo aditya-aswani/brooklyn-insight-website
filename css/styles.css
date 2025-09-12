@@ -79,15 +79,14 @@ nav.scrolled {
     color: var(--light);
     animation: glow 3s ease-in-out infinite;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.logo-symbol {
-    color: var(--primary);
-    font-size: 1.8rem;
-    margin-right: 0.3rem;
-    position: relative;
-    top: 2px;
-    display: inline-block;
+.logo-image {
+    width: 70px;
+    height: 70px;
 }
 
 @keyframes glow {
@@ -138,7 +137,7 @@ nav.scrolled {
 .nav-links {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-40%);
     display: flex;
     gap: 2rem;
     list-style: none;
@@ -1495,9 +1494,9 @@ footer {
         position: static;
     }
     
-    .logo-symbol {
-        font-size: 2rem;
-        top: 1px;
+    .logo-image {
+        width: 75px;
+        height: 75px;
     }
     
     .mobile-menu-toggle {
@@ -1756,9 +1755,9 @@ footer {
         position: static;
     }
     
-    .logo-symbol {
-        font-size: 1.4rem;
-        top: 1px;
+    .logo-image {
+        width: 65px;
+        height: 65px;
     }
     
     .mobile-menu-toggle {
@@ -2140,9 +2139,9 @@ footer {
         margin-bottom: 0 !important;
     }
     
-    .logo-symbol {
-        font-size: 1.2rem !important;
-        top: 1px !important;
+    .logo-image {
+        width: 55px !important;
+        height: 55px !important;
     }
     
     .mobile-menu-toggle {
@@ -2269,9 +2268,9 @@ footer {
         margin-bottom: 0.3rem;
     }
     
-    .logo-symbol {
-        font-size: 1.3rem;
-        top: 1px;
+    .logo-image {
+        width: 60px;
+        height: 60px;
     }
     
     .nav-links {
