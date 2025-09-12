@@ -40,7 +40,7 @@ jobs:
         cp -r css dist/
         cp -r js dist/
         cp -r images dist/
-        cp -r wheel_favicons dist/
+        cp -r bk-insight-favicons dist/
         
     - name: Setup Pages
       uses: actions/configure-pages@v4
